@@ -7,8 +7,16 @@ router.get('/',function(request, response){
         response.json(result);
     })
 });
-router.get('/:id');
-router.post('/');
+router.get('/:id',function(request, response){
+    book.getOneBook(request.params.id,function(result){
+        response.json(result);
+    })
+});
+router.post('/',function(request, response){
+    book.addBook(request.body, function(result){
+        response.json(result);
+    })
+});
 router.put('/:id');
 router.delete('/:id');
 
